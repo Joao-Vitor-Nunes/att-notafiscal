@@ -1,0 +1,104 @@
+body {
+    background-color: rgb(156, 156, 156);
+    font-family: 'Rubik', sans-serif;
+    margin: 0;
+    
+}
+
+h1 {
+    color: white;
+    text-align: center;
+    margin-top: 2em;
+}
+
+
+.container-inputs {
+    text-align: center;
+}
+
+input {
+    padding: 0.8em ;
+    border-radius: 12px;
+    margin-top: 12px;
+    border-style: none;
+}
+
+button {
+    padding: 0.8em ;
+    border-radius: 12px;
+    margin-top: 12px;
+    font-weight: bold;
+    border-style: none;
+    cursor: pointer;
+}
+
+.container {
+    background-color: white;
+    width: 45em;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 6em;
+}
+
+ul {
+    list-style: none;
+}
+
+.linha {
+    display: flex;
+}
+
+.espaco1 {
+    margin-left: 25em;
+}
+
+.espaco2 {
+    margin-left: 18em;
+}
+
+.espaco3 {
+    margin-left: 18em;
+    
+}
+
+.especificacao {
+    margin-left: 19.8em;
+}
+
+.especificacao li{
+    display: inline;
+    margin-left: 1em;
+}
+
+.container-results {
+    display: inline;
+    position: relative;
+}
+
+.container-results ul{
+    display: inline;
+    position: absolute;
+}
+
+#lista-quant {
+    right: 27%;
+    position: absolute;
+}
+
+#lista-preco {
+    right: 17%;
+    position: absolute;
+}
+
+#lista-precoT {
+    right: 2.7%;
+    position: absolute;
+}
+
+#acumulador {
+    padding-left: 89%;
+}
+
+
+

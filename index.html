@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nota Fiscal</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>Cadastro de Produtos</h1>
+    <div class="container-inputs">
+        <input id="nome-produto" type="text" placeholder="Nome do produto">
+        <br>
+        <input type="text" id="quant-produto" placeholder="Quantidade">
+        <br>
+        <input type="text" id="preco-produto" placeholder="Preço(R$)">
+        <br>
+        <button id="button">Cadastrar</button>
+    </div>
+    <h1>Nota Fiscal</h1>
+    <div class="container">
+        <ul class="coluna">
+            <div class="linha">
+                <li>ABC</li>
+                <li class="espaco1">00.000.000/0001-00</li>
+            </div>
+            <div class="linha">
+                <li>Rua Capixaba, 1324</li>
+                <li class="espaco2">Rio de Janeiro RJ</li>
+            </div>
+            <li>----------------------------------------------------------------------------------</li>
+            <div class="linha">
+                <li>Produto</li>
+                <ul class="especificacao">
+                    <li>Quant</li>
+                    <li>P.Unit</li>
+                    <li>P.Total</li>
+                </ul>
+            </div>
+            <li>----------------------------------------------------------------------------------</li>
+            <div class="container-results">
+                <ul id="lista-quant"></ul>
+                <ul id="lista-preco"></ul>
+                <ul id="lista-precoT"></ul>
+                <li id="lista-produto"></li>
+
+            </div>
+            <li>----------------------------------------------------------------------------------</li>
+            <p id="acumulador"></p>
+        </ul>
+    </div>
+    <script>
+        let produto = document.getElementById('nome-produto')
+        let quantidade = document.getElementById('quant-produto')
+        let preco = document.getElementById('preco-produto')
+
+
+        let listaProduto = document.getElementById('lista-produto')
+        let listaQuant = document.getElementById('lista-quant')
+        let listaPreco = document.getElementById('lista-preco')
+        let listaPrecoT = document.getElementById('lista-precoT')
+
+        let acumulador = document.getElementById('acumulador')
+        const produtoSoma = []
+
+        const btnCadastro = document.getElementById('button')
+
+        btnCadastro.addEventListener('click', () => {
+            if (produto.value != '' && quantidade.value != '' && preco.value != '') {
+
+                let precoP = preco.value
+                let quantidadeP = quantidade.value
+                let calculo = precoP * quantidadeP
+                let acumuladorP = acumulador.value
+
+                const novoProduto = document.createElement('li')
+                novoProduto.textContent = produto.value
+                listaProduto.appendChild(novoProduto)
+                produto.value = ''
+
+                const novoQuant = document.createElement('li')
+                novoQuant.textContent = quantidade.value
+                listaQuant.appendChild(novoQuant)
+                quantidade.value = ''
+
+                const novoPreco = document.createElement('li')
+                novoPreco.textContent = preco.value
+                listaPreco.appendChild(novoPreco)
+                preco.value = ''
+
+                const precoProdutoT = document.createElement('li')
+                precoProdutoT.textContent = (`${calculo.toFixed(2)}`)
+                listaPrecoT.appendChild(precoProdutoT)
+  
+                produtoSoma.push(parseFloat(calculo))
+                let soma = 0             
+                for (item of produtoSoma) {
+                    soma += item
+                }
+                acumulador.textContent = (`R$${soma.toFixed(2)}`)
+
+                alert('Produto Cadastrado com Sucesso!')
+            } else {
+                alert('Preencha todos os Campos!')
+            }
+
+            
+
+        })
+        
+    </script>
+</body>
+</html>
